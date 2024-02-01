@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 08:28:14 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/01 08:38:26 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:46:49 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,17 @@ int	ft_stack_len(t_stack_node *stack)
 		len++;
 	}
 	return (len);
+}
+
+int	ft_is_stack_sorted(t_stack_node *stack)
+{
+	if (stack == NULL)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->nb > stack->next->nb)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

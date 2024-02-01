@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:48 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/01 08:40:59 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:01:47 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,16 @@ void			ft_free_str_arr(char **str_arr);
 void			ft_stack_clear(t_stack_node **stack);
 int				ft_check_dup(t_stack_node *stack_a, int nb);
 int				ft_stack_len(t_stack_node *stack);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
+void			pa(t_stack_node **b, t_stack_node **a);
+void			pb(t_stack_node **a, t_stack_node **b);
+void			ra(t_stack_node **a);
+void			rb(t_stack_node **b);
+void			rr(t_stack_node **a, t_stack_node **b);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
 
 #endif

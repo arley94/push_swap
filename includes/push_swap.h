@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:48 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/02 10:12:15 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:05:01 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,19 @@
 /* ************************************************************************** */
 /*                                 STRUCT                                     */
 /* ************************************************************************** */
+
+typedef enum e_stack_pos
+{
+	UP,
+	DOWN
+}				t_stack_pos;
+
 typedef struct s_stack_node
 {
 	int					nb;
 	int					idx;
 	int					push_price;
+	t_stack_pos			half;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 	struct s_stack_node	*target;

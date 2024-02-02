@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:48 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/01 17:01:47 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/02 08:44:11 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void			rr(t_stack_node **a, t_stack_node **b);
 void			rra(t_stack_node **a);
 void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
+int				ft_is_stack_sorted(t_stack_node *stack);
 
 #endif

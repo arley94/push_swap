@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:03:24 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/01/30 10:34:04 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/02 08:48:04 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ft_stack_clear(t_stack_node **stack)
 {
 	t_stack_node	*temp;
 
+	if (stack == NULL)
+		return ;
 	while (*stack)
 	{
 		temp = (*stack)->next;

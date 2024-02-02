@@ -10,11 +10,16 @@ LIBFTPRINTF = $(addprefix $(LIBS_DIR), $(FTPRINTF_DIR))
 
 # SOURCE FILES
 SRC_DIR = src/
-SRC_FILES = 	main.c 				\
-				parse.c 			\
-				stack_utils.c		\
-				ft_atoi_special.c	\
-				error_free.c
+SRC_FILES = 	main.c 						\
+				parse.c 					\
+				stack_utils.c				\
+				ft_atoi_special.c			\
+				error_free.c				\
+				push_command.c				\
+				swap_command.c				\
+				rotate_command.c			\
+				reverse_rotate_command.c	\
+				tiny_sort.c
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 

@@ -36,7 +36,8 @@ FILES = ft_isalpha \
 						ft_putendl_fd \
 						ft_putnbr_fd \
 						ft_str_is_numeric \
-						ft_error
+						ft_error \
+						ft_absolute
 
 B_FILES = ft_lstnew_bonus \
 							ft_lstadd_front_bonus \

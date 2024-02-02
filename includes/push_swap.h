@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:48 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/02 16:04:57 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:56:19 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ void			set_index_and_half(t_stack_node *stack);
 t_stack_node	*smallest_in_stack(t_stack_node *a);
 void			set_targets(t_stack_node *a, t_stack_node *b);
 void			set_prices(t_stack_node *a, t_stack_node *b);
+void			big_sort(t_stack_node **a, t_stack_node **b);
 
 #endif

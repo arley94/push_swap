@@ -19,7 +19,7 @@ SRC_FILES = 	main.c 						\
 				swap_command.c				\
 				rotate_command.c			\
 				reverse_rotate_command.c	\
-				tiny_sort.c
+				small_sort.c
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 

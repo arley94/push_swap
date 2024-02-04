@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:26:49 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/04 09:06:01 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:45:49 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	ft_parse_args(argv + 1, &a);
-	// ft_printf("Stack a before sort:\n");
-	// ft_print_stack(a);
 	if (!ft_is_stack_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
@@ -42,8 +40,6 @@ int	main(int argc, char **argv)
 		else
 			big_sort(&a, &b);
 	}
-	// ft_printf("Stack a after sort:\n");
-	// ft_print_stack(a);
 	ft_stack_clear(&a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:57:13 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/04 09:17:57 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:41:04 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,50 +31,52 @@ void	set_index_and_half(t_stack_node *stack)
 	}
 }
 
-t_stack_node	*smallest_in_stack(t_stack_node *a)
-{
-	t_stack_node	*smallest;
-
-	smallest = a;
-	while (a)
-	{
-		if (smallest->nb > a->nb)
-			smallest = a;
-		a = a->next;
-	}
-	return (smallest);
-}
-
-void	set_targets(t_stack_node *dst, t_stack_node *src)
+void	set_targets_to_a(t_stack_node *a, t_stack_node *b)
 {
 	long			smallest_biggest;
-	t_stack_node	*dst_aux;
+	t_stack_node	*a_aux;
 
-	while (src)
+	while (b)
 	{
 		smallest_biggest = LONG_MAX;
-		dst_aux = dst;
-		while (dst_aux)
+		a_aux = a;
+		while (a_aux)
 		{
-			if ((dst_aux->nb > src->nb) && (dst_aux->nb < smallest_biggest))
+			if ((a_aux->nb > b->nb) && (a_aux->nb < smallest_biggest))
 			{
-				smallest_biggest = dst_aux->nb;
-				src->target = dst_aux;
+				smallest_biggest = a_aux->nb;
+				b->target = a_aux;
 			}
-			dst_aux = dst_aux->next;
+			a_aux = a_aux->next;
 		}
 		if (smallest_biggest == LONG_MAX)
-			src->target = smallest_in_stack(dst);
-		src = src->next;
+			b->target = get_stack_max_min(a, SMALLEST_NODE);
+		b = b->next;
 	}
 }
 
-int	get_biggest(int a, int b)
+void	set_targets_to_b(t_stack_node *b, t_stack_node *a)
 {
-	if (a > b)
-		return (a);
-	else
-		return (b);
+	long			biggest_smallest;
+	t_stack_node	*b_aux;
+
+	while (a)
+	{
+		biggest_smallest = LONG_MIN;
+		b_aux = b;
+		while (b_aux)
+		{
+			if ((b_aux->nb < a->nb) && (b_aux->nb > biggest_smallest))
+			{
+				biggest_smallest = b_aux->nb;
+				a->target = b_aux;
+			}
+			b_aux = b_aux->next;
+		}
+		if (biggest_smallest == LONG_MIN)
+			a->target = get_stack_max_min(b, BIGGEST_NODE);
+		a = a->next;
+	}
 }
 
 void	set_prices(t_stack_node *a, t_stack_node *b)
@@ -95,9 +97,20 @@ void	set_prices(t_stack_node *a, t_stack_node *b)
 		else
 			price_a = ft_stack_len(a) - b->target->idx;
 		if (b->half == b->target->half)
-			b->push_price = get_biggest(price_a, price_b);
+			b->push_price = ft_get_biggest(price_a, price_b);
 		else
 			b->push_price = price_a + price_b;
 		b = b->next;
 	}
+}
+
+void	init_stacks(t_stack_node *dst, t_stack_node *src, t_stack_nb dst_stack)
+{
+	set_index_and_half(dst);
+	set_index_and_half(src);
+	if (dst_stack == A)
+		set_targets_to_a(dst, src);
+	else
+		set_targets_to_b(dst, src);
+	set_prices(dst, src);
 }

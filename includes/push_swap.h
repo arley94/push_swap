@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:48 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/02 18:56:19 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:43:17 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ typedef enum e_stack_pos
 	UP,
 	DOWN
 }				t_stack_pos;
+
+typedef enum e_stack_number
+{
+	A,
+	B
+}				t_stack_nb;
+
+typedef enum e_node_limit_value
+{
+	SMALLEST_NODE,
+	BIGGEST_NODE
+}				t_node_limit_value;
 
 typedef struct s_stack_node
 {
@@ -72,9 +84,13 @@ void			rrr(t_stack_node **a, t_stack_node **b);
 int				ft_is_stack_sorted(t_stack_node *stack);
 void			small_sort(t_stack_node **a);
 void			set_index_and_half(t_stack_node *stack);
-t_stack_node	*smallest_in_stack(t_stack_node *a);
-void			set_targets(t_stack_node *a, t_stack_node *b);
+t_stack_node	*get_stack_max_min(t_stack_node *stack,
+					t_node_limit_value max_min);
+void			set_targets_to_a(t_stack_node *a, t_stack_node *b);
+void			set_targets_to_b(t_stack_node *b, t_stack_node *a);
 void			set_prices(t_stack_node *a, t_stack_node *b);
+void			init_stacks(t_stack_node *dst, t_stack_node *src,
+					t_stack_nb dst_stack);
 void			big_sort(t_stack_node **a, t_stack_node **b);
 
 #endif

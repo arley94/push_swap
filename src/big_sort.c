@@ -6,19 +6,11 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 09:59:17 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/03 17:26:48 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/04 12:41:18 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	init_stacks(t_stack_node *a, t_stack_node *b)
-{
-	set_index_and_half(a);
-	set_index_and_half(b);
-	set_targets(a, b);
-	set_prices(a, b);
-}
 
 t_stack_node	*get_cheapest_node(t_stack_node *stack)
 {
@@ -46,11 +38,11 @@ void	both_until_top(t_stack_node **a, t_stack_node **b,
 	}
 }
 
-void	until_top(t_stack_node **stack, t_stack_node *top, int stack_nb)
+void	until_top(t_stack_node **stack, t_stack_node *top, t_stack_nb stack_nb)
 {
 	while (*stack != top)
 	{
-		if (stack_nb == 0)
+		if (stack_nb == A)
 		{
 			if (top->half == UP)
 				ra(stack);
@@ -67,16 +59,20 @@ void	until_top(t_stack_node **stack, t_stack_node *top, int stack_nb)
 	}
 }
 
-void	push_chepeast(t_stack_node **a, t_stack_node **b)
+void	push_chepeast(t_stack_node **dst, t_stack_node **src,
+				t_stack_nb push_to)
 {
 	t_stack_node	*best;
 
-	best = get_cheapest_node(*b);
+	best = get_cheapest_node(*src);
 	if (best->half == best->target->half)
-		both_until_top(a, b, best);
-	until_top(a, best->target, 0);
-	until_top(b, best, 1);
-	pa(b, a);
+		both_until_top(dst, src, best);
+	until_top(dst, best->target, push_to);
+	until_top(src, best, !push_to);
+	if (push_to == A)
+		pa(src, dst);
+	else
+		pb(src, dst);
 }
 
 void	big_sort(t_stack_node **a, t_stack_node **b)
@@ -84,18 +80,24 @@ void	big_sort(t_stack_node **a, t_stack_node **b)
 	int	stack_len;
 
 	stack_len = ft_stack_len(*a);
-	while (stack_len > 3 && !ft_is_stack_sorted(*a))
+	if (stack_len > 3)
 	{
 		pb(a, b);
+		stack_len--;
+	}
+	while (stack_len > 3 && !ft_is_stack_sorted(*a))
+	{
+		init_stacks(*b, *a, B);
+		push_chepeast(b, a, B);
 		stack_len--;
 	}
 	if (!ft_is_stack_sorted(*a) && stack_len == 3)
 		small_sort(a);
 	while (*b)
 	{
-		init_stacks(*a, *b);
-		push_chepeast(a, b);
+		init_stacks(*a, *b, A);
+		push_chepeast(a, b, A);
 	}
 	set_index_and_half(*a);
-	until_top(a, smallest_in_stack(*a), 0);
+	until_top(a, get_stack_max_min(*a, SMALLEST_NODE), 0);
 }

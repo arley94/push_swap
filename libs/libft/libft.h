@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:40:15 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/02 13:02:18 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/04 11:56:26 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 void	ft_error(void);
 int		ft_absolute(int nb);
+int		ft_get_biggest(int a, int b);
 
 #endif

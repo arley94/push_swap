@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:57:13 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/03 14:29:20 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/04 09:17:57 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,27 @@ t_stack_node	*smallest_in_stack(t_stack_node *a)
 	return (smallest);
 }
 
-void	set_targets(t_stack_node *a, t_stack_node *b)
+void	set_targets(t_stack_node *dst, t_stack_node *src)
 {
 	long			smallest_biggest;
-	t_stack_node	*a_aux;
+	t_stack_node	*dst_aux;
 
-	while (b)
+	while (src)
 	{
 		smallest_biggest = LONG_MAX;
-		a_aux = a;
-		while (a_aux)
+		dst_aux = dst;
+		while (dst_aux)
 		{
-			if ((a_aux->nb > b->nb) && (a_aux->nb < smallest_biggest))
+			if ((dst_aux->nb > src->nb) && (dst_aux->nb < smallest_biggest))
 			{
-				smallest_biggest = a_aux->nb;
-				b->target = a_aux;
+				smallest_biggest = dst_aux->nb;
+				src->target = dst_aux;
 			}
-			a_aux = a_aux->next;
+			dst_aux = dst_aux->next;
 		}
 		if (smallest_biggest == LONG_MAX)
-			b->target = smallest_in_stack(a);
-		b = b->next;
+			src->target = smallest_in_stack(dst);
+		src = src->next;
 	}
 }
 

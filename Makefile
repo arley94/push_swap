@@ -84,14 +84,13 @@ clean:
 	@echo "$(PINK)Removing compiled files.$(CLEAR)"
 	@make clean -C libs/libft
 	@make clean -C libs/libftprintf
-	$(RM) $(OBJ_FILES)
-	$(RM) $(OBJ_BONUS_FILES)
+	$(RM) $(OBJ_FILES) $(OBJ_BONUS_FILES)
 	@echo "$(GREEN)Object files removed correctly\n$(CLEAR)"
 
 fclean: clean
 	@make fclean -C libs/libft
 	@make fclean -C libs/libftprintf
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME_BONUS)
 	@echo "$(GREEN)Exec. files removed correctly\nSuccess!$(CLEAR)"
 
 re: fclean all

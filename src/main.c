@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:26:49 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/04 12:45:49 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/05 08:38:37 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	if (!ft_is_stack_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
-			sa(&a);
+			sa(&a, TRUE);
 		else if (ft_stack_len(a) == 3)
 			small_sort(&a);
 		else

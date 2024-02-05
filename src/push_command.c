@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:38:02 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/01 09:08:27 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/05 07:16:37 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,16 @@ void	push(t_stack_node **src, t_stack_node **dst)
 	}
 }
 
-void	pa(t_stack_node **b, t_stack_node **a)
+void	pa(t_stack_node **b, t_stack_node **a, t_bool print_command)
 {
 	push(b, a);
-	ft_printf("pa\n");
+	if (print_command)
+		ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **a, t_stack_node **b)
+void	pb(t_stack_node **a, t_stack_node **b, t_bool print_command)
 {
 	push(a, b);
-	ft_printf("pb\n");
+	if (print_command)
+		ft_printf("pb\n");
 }

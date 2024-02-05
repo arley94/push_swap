@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:48 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/04 14:35:24 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/05 07:17:27 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ typedef enum e_node_limit_value
 	SMALLEST_NODE,
 	BIGGEST_NODE
 }				t_node_limit_value;
+
+typedef enum e_bool
+{
+	FALSE,
+	TRUE
+}				t_bool;
+
 
 typedef struct s_stack_node
 {
@@ -98,16 +105,16 @@ void			init_stacks(t_stack_node *dst, t_stack_node *src,
 /*                                   COMMANDS                                 */
 /* ************************************************************************** */
 
-void			sa(t_stack_node **a);
-void			sb(t_stack_node **b);
-void			ss(t_stack_node **a, t_stack_node **b);
-void			pa(t_stack_node **b, t_stack_node **a);
-void			pb(t_stack_node **a, t_stack_node **b);
-void			ra(t_stack_node **a);
-void			rb(t_stack_node **b);
-void			rr(t_stack_node **a, t_stack_node **b);
-void			rra(t_stack_node **a);
-void			rrb(t_stack_node **b);
-void			rrr(t_stack_node **a, t_stack_node **b);
+void			sa(t_stack_node **a, t_bool print_command);
+void			sb(t_stack_node **b, t_bool print_command);
+void			ss(t_stack_node **a, t_stack_node **b, t_bool print_command);
+void			pa(t_stack_node **b, t_stack_node **a, t_bool print_command);
+void			pb(t_stack_node **a, t_stack_node **b, t_bool print_command);
+void			ra(t_stack_node **a, t_bool print_command);
+void			rb(t_stack_node **b, t_bool print_command);
+void			rr(t_stack_node **a, t_stack_node **b, t_bool print_command);
+void			rra(t_stack_node **a, t_bool print_command);
+void			rrb(t_stack_node **b, t_bool print_command);
+void			rrr(t_stack_node **a, t_stack_node **b, t_bool print_command);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:22:38 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/01 16:35:43 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/05 07:15:51 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,24 @@ void	reverse_rotate(t_stack_node **stack)
 	*stack = last_node;
 }
 
-void	rra(t_stack_node **a)
+void	rra(t_stack_node **a, t_bool print_command)
 {
 	reverse_rotate(a);
-	ft_printf("rra\n");
+	if (print_command)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_stack_node **b)
+void	rrb(t_stack_node **b, t_bool print_command)
 {
 	reverse_rotate(b);
-	ft_printf("rrb\n");
+	if (print_command)
+		ft_printf("rrb\n");
 }
 
-void	rrr(t_stack_node **a, t_stack_node **b)
+void	rrr(t_stack_node **a, t_stack_node **b, t_bool print_command)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	ft_printf("rrr\n");
+	if (print_command)
+		ft_printf("rrr\n");
 }

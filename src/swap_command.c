@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 08:34:00 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/01 09:05:44 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/05 07:12:58 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,24 @@ void	swap(t_stack_node **head)
 	(*head)->prev = NULL;
 }
 
-void	sa(t_stack_node **a)
+void	sa(t_stack_node **a, t_bool print_command)
 {
 	swap(a);
-	ft_printf("sa\n");
+	if (print_command)
+		ft_printf("sa\n");
 }
 
-void	sb(t_stack_node **b)
+void	sb(t_stack_node **b, t_bool print_command)
 {
 	swap(b);
-	ft_printf("sb\n");
+	if (print_command)
+		ft_printf("sb\n");
 }
 
-void	ss(t_stack_node **a, t_stack_node **b)
+void	ss(t_stack_node **a, t_stack_node **b, t_bool print_command)
 {
 	swap(a);
 	swap(b);
-	ft_printf("ss\n");
+	if (print_command)
+		ft_printf("ss\n");
 }

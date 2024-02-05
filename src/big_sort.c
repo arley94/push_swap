@@ -6,7 +6,7 @@
 /*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 09:59:17 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/04 12:41:18 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/05 07:39:33 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	both_until_top(t_stack_node **a, t_stack_node **b,
 	while (*a != best->target && *b != best)
 	{
 		if (best->half == UP)
-			rr(a, b);
+			rr(a, b, TRUE);
 		else
-			rrr(a, b);
+			rrr(a, b, TRUE);
 	}
 }
 
@@ -45,16 +45,16 @@ void	until_top(t_stack_node **stack, t_stack_node *top, t_stack_nb stack_nb)
 		if (stack_nb == A)
 		{
 			if (top->half == UP)
-				ra(stack);
+				ra(stack, TRUE);
 			else
-				rra(stack);
+				rra(stack, TRUE);
 		}
 		else
 		{
 			if (top->half == UP)
-				rb(stack);
+				rb(stack, TRUE);
 			else
-				rrb(stack);
+				rrb(stack, TRUE);
 		}
 	}
 }
@@ -70,9 +70,9 @@ void	push_chepeast(t_stack_node **dst, t_stack_node **src,
 	until_top(dst, best->target, push_to);
 	until_top(src, best, !push_to);
 	if (push_to == A)
-		pa(src, dst);
+		pa(src, dst, TRUE);
 	else
-		pb(src, dst);
+		pb(src, dst, TRUE);
 }
 
 void	big_sort(t_stack_node **a, t_stack_node **b)
@@ -82,7 +82,7 @@ void	big_sort(t_stack_node **a, t_stack_node **b)
 	stack_len = ft_stack_len(*a);
 	if (stack_len > 3)
 	{
-		pb(a, b);
+		pb(a, b, TRUE);
 		stack_len--;
 	}
 	while (stack_len > 3 && !ft_is_stack_sorted(*a))
@@ -99,5 +99,5 @@ void	big_sort(t_stack_node **a, t_stack_node **b)
 		push_chepeast(a, b, A);
 	}
 	set_index_and_half(*a);
-	until_top(a, get_stack_max_min(*a, SMALLEST_NODE), 0);
+	until_top(a, get_stack_max_min(*a, SMALLEST_NODE), A);
 }

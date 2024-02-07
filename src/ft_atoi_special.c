@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_special.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: acoto-gu <acoto-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 08:09:52 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/05 15:12:01 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:26:13 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_atoi_special(char *str_nb, int *nb)
 	while (str_nb[i])
 	{
 		result = result * 10 + str_nb[i++] - '0';
-		if ((result * sign) > INT_MAX 
+		if ((result * sign) > INT_MAX
 			|| (result * sign) < INT_MIN)
 			return (0);
 	}

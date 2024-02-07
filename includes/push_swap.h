@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: acoto-gu <acoto-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:37:48 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/05 07:17:27 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:27:04 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }				t_bool;
-
 
 typedef struct s_stack_node
 {

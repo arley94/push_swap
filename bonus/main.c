@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acoto-gu <acoto-gu@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: acoto-gu <acoto-gu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:35:21 by acoto-gu          #+#    #+#             */
-/*   Updated: 2024/02/05 14:54:14 by acoto-gu         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:44:26 by acoto-gu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ void	ft_read_commands(t_stack_node **a, t_stack_node **b, int fd)
 {
 	char	*str;
 
-	a = a;
-	b = b;
 	while (1)
 	{
 		str = get_next_line(fd);
